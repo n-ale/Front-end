@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	 <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <title> Material de Estudo de Circuitos Digitais: Portas Lógicas e Tabela Verdade  </title>
+
+
+
+<style>
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+.quiz {
+    background: #0088ff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.quiz label:hover {
+    background: #f0f4ff;
+}
+
+.feedback {
+    display: none;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.correta {
+    color: green;
+}
+
+.errada {
+    color: red;
+}
+
+/* Mostra resposta correta */
+input[value="c"]:checked ~ .correta {
+    display: block;
+}
+
+/* Mostra resposta errada dependendo da alternativa */
+input[value="a"]:checked ~ .errada.a,
+input[value="b"]:checked ~ .errada.b,
+input[value="d"]:checked ~ .errada.d,
+input[value="e"]:checked ~ .errada.e {
+    display: block;
+}
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 240px;
+            height: 100vh;
+            background-color: #1e293b;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 12px;
+        }
+
+        nav a {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 15px;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #334155;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            margin-left: 260px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+	    border-radius: 8px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #0f172a;
+        }
+
+        /* ===== CONTEÚDO ===== */
+        .conteudo {
+            margin-left: 260px;
+            padding: 30px;
+        }
+
+        /* ===== SEÇÕES ===== */
+        section {
+            background-color: #ffffff;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        section h2 {
+            font-size: 22px;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        /* ===== ARTIGOS ===== */
+        article {
+            background-color: #f9fafb;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid #2563eb;
+            border-radius: 6px;
+        }
+
+        article h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1d4ed8;
+        }
+
+        article h4 {
+            margin-top: 15px;
+            color: #334155;
+        }
+
+        /* ===== TEXTOS ===== */
+        p {
+            margin-bottom: 12px;
+        }
+
+        /* ===== LISTAS ===== */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== QUIZ ===== */
+        #quiz {
+            border: 2px dashed #2563eb;
+            background-color: #eef2ff;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 900px) {
+            nav {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .header,
+            .conteudo {
+                margin-left: 0;
+            }
+        }
+</style>
+</head>
+<body>
+	<nav>
+	
+			<li> <a href="#introducao" target="_self">Introdução</a> </li> 
+        		<li> <a href="#conceitos" target="_self"> O que são Portas Lógicas</a> </li> 
+        		<li> <a href="#tipos" target="_self">Tipos de portas</a> </li> 
+        		<li> <a href="#tabela" target="_self">Tabela Verdade</a> </li> 
+        		<li> <a href="#exemplos" target="_self">Exemplos</a> </li> 
+        		<li> <a href="#resumo" target="_self">Resumo</a> </li> 
+        		<li> <a href="#quiz" target="_self">Quiz</a> </li> 
+    	</nav>
+	<div class="header">
+        	<h1> Material de Estudo de Circuitos Digitais: Portas Lógicas e Tabela Verdade </h1>
+    	</div>
+	<div class="conteudo">
+		<section id="introducao">
+			<h2> Introdução </h2>
+			<p> Os circuitos digitais estão presentes em praticamente todos os dispositivos eletrônicos modernos, como computadores, celulares, consoles de videogame e sistemas de automação.
+Eles funcionam a partir de valores binários, representados por 0 e 1, que indicam estados como desligado/ligado ou falso/verdadeiro. </p>
+			<p> Neste material, você vai aprender: </p>
+			<ul> <li> que são portas lógicas </li>
+			     <li> Como elas funcionam </li>
+			     <li> Como montar e interpretar tabelas verdade </li>
+			     <li> Como aplicar esse conhecimento em situações reais </li>
+</ul>
+			<p> Ao final, você poderá testar seu aprendizado em um quiz interativo. </p>
+		</section>
+		<section id="conceitos">
+			<h2> O que são Portas Lógicas </h2>
+			<p> Portas lógicas são componentes fundamentais dos circuitos digitais.
+Elas recebem um ou mais valores de entrada (0 ou 1), realizam uma operação lógica e produzem uma saída, também em 0 ou 1. </p>
+			<p> Cada porta segue uma <b> regra lógica específica </b>, que define qual será o valor da saída para cada combinação possível de entradas. </p>
+			<p> Em termos simples: </p>
+			<ul> <li> <b> Portas lógicas tomam decisões baseadas em regras. </b> </li> </ul>
+		</section>
+		<section id="tipos">
+			<h2> Tipos de Portas Lógicas </h2>
+			<article> 
+				<h3> Porta <b> AND (E) </b> </h3>
+				<img src="PortaAND.png" alt= "Porta And">
+				<p> A porta <b> AND </b> retorna saída 1 somente quando todas as entradas forem 1.
+				<ul> <li> Se uma das entradas for 0 → saída será 0 </li>
+				     <li> Funciona como a ideia de “tudo precisa estar ligado” </li>
+				</ul>
+			<p> <b> Exemplo conceitual: </b> </p>
+			<p> Dois botões precisam estar pressionados para uma máquina funcionar.</p>
+			</article>
+			<article>
+				<h3> Porta <b> OR (OU) </b> </h3>
+				<img src="PortaOR.png" alt= "Porta Or" width="379" height="213">
+				<p> A porta <b> OR </b> retorna saída 1 quando pelo menos uma entrada for 1. </p>
+				<ul> <li> Só retorna 0 se todas as entradas forem 0 </li>
+				<li> Funciona como uma alternativa </li> </ul>
+				<p> <b> Exemplo conceitual: </b> </p>
+				<p> Uma lâmpada acende se qualquer um dos dois interruptores for ligado. </p>
+			</article>
+			<article>
+				<h3> Porta <b> NOT (NÃO) </b> </h3>
+				<img src="PortaNOT.png" alt= "Porta NOT" width="379" height="213">
+				<p> A porta <b> NOT </b> possui apenas uma entrada e inverte o valor. </p>
+				<ul> <li> Entrada 0 → saída 1 </li>
+				<li> Entrada 1 → saída 0 </li> </ul>
+				<p> <b> Exemplo conceitual: </b> </p>
+				<p> Um sistema que desliga automaticamente quando detecta algo ligado. </p>
+			</article>
+			<article>
+				<h3> Portas Derivadas </h3>
+				<h4> NAND </h4> 
+				<img src="PortaNAND.png" alt= "Porta Nand" width="379" height="213">
+				<p> É a negação da <b> AND </b>. </p>
+				<ul> <li> Só retorna 0 quando todas as entradas forem 1 </li> </ul>
+				<h4> NOR </h4>
+				<img src="PortaNOR.png" alt= "Porta Nor" width="379" height="213">
+
+				<p> É a negação da <b> OR </b>.
+				<ul> <li> Só retorna 1 quando todas as entradas forem 0 </li> </ul>
+				<h4> XOR (OU exclusivo) </h4>
+				<img src="PortaXOR.png" alt= "Porta Xor" width="379" height="213">
+
+				<ul> <li> Retorna 1 quando as entradas são diferentes </li>
+				<li> Retorna 0 quando são iguais </li> </ul>
+				<p> Essas portas são muito usadas em circuitos mais complexos. </p>
+		</section>
+		<section id="tabela">
+			<h2> Tabela Verdade </h2>
+			<img src="img2.png" alt= "Exemplo">
+			<p> A <b> tabela verdade </b> é uma forma organizada de mostrar <b> todas as combinações </b> possíveis de entradas e o resultado correspondente da saída. </p>
+			<p> Ela serve para: </p>
+			<ul> <li> Analisar o comportamento de uma porta lógica </li>
+			<li> Conferir se um circuito está correto </li>
+			<li> Resolver exercícios e provas </li> </ul>
+			<p> Como montar uma tabela verdade: </p> 
+			<ol> <li> Defina o número de entradas </li>
+			<li> Liste todas as combinações possíveis de 0 e 1 </li> 
+			<li> Aplique a regra da porta lógica para cada linha </li> </ol>
+		</section>
+		<section id="exemplos">
+			<h2> Exemplos Práticos </h2>
+			<p> </p>
+			<ul> <li> Sistema de alarme: </li> </ul>
+			<li> O alarme dispara apenas se o sensor detectar movimento E a porta estiver fechada. </li>
+			<ul> <li> Controle de acesso: </li> </ul>
+			<li> A porta abre se a senha OU o cartão estiver correto. </li>
+			<ul> <li> Automação residencial: </li> </ul>
+			<li> A luz acende apenas se for noite E houver presença. </li>
+			<p> Esses exemplos mostram como a lógica digital está presente no dia a dia. </p>
+		</section>
+		<section id="resumo"> 
+			<h2> Resumo Visual </h2>
+			<p> Nesta seção, o objetivo é revisar rapidamente os conceitos: </p>
+			<ul> <li> Portas lógicas trabalham com 0 e 1 </li>
+			<li> Cada porta tem uma regra própria </li>
+			<li> A tabela verdade mostra todos os resultados possíveis </li>
+			<li> AND → todas as entradas precisam ser 1 </li>
+			<li> OR → pelo menos uma entrada precisa ser 1 </li>
+			<li> NOT → inverte o valor </li> </ul>
+		</section>
+		<section id="quiz">
+			<h2> Quiz Final </h2>
+			
+
+			<p><strong>Qual será a saída para determinadas entradas?</strong></p>
+			<img src="imgEX.png" alt= "Exercício">
+			
+  
+	<div class="quiz">
+  <input type="radio" name="q1" value="a" id="q1a">
+  <label for="q1a">A) 1 0 0 0 </label><br>
+
+  <input type="radio" name="q1" value="b" id="q1b">
+  <label for="q1b">B) 0 1 0 1</label><br>
+
+  <input type="radio" name="q1" value="c" id="q1c">
+  <label for="q1c">C) 0 0 0 1</label><br>
+
+  <input type="radio" name="q1" value="d" id="q1d">
+  <label for="q1d">D) 1 0 0 1</label><br>
+
+  <input type="radio" name="q1" value="e" id="q1e">
+  <label for="q1e">E) 0 1 1 0</label>
+
+  <!-- Feedback -->
+  <div class="feedback correta">
+    ✔ Resposta correta!
+  </div>
+
+  <div class="feedback errada a">✖ Incorreta.</div>
+  <div class="feedback errada b">✖ Incorreta.</div>
+  <div class="feedback errada d">✖ Incorreta.</div>
+  <div class="feedback errada e">✖ Incorreta.</div>
+	</div>
+			<p> </p>
+			<p><strong> Qual porta lógica representa o comportamento descrito?</strong></p>
+			<img src="imgEX2.png" alt= "Exercício 2">
+	<div class="quiz">
+  <input type="radio" name="q2" value="a" id="q2a">
+  <label for="q2a">A) AND </label><br>
+
+  <input type="radio" name="q2" value="b" id="q2b">
+  <label for="q2b">B) NOT </label><br>
+
+  <input type="radio" name="q2" value="c" id="q2c">
+  <label for="q2c">C) OR </label><br>
+
+  <input type="radio" name="q2" value="d" id="q2d">
+  <label for="q2d">D) NAND </label><br>
+
+  <input type="radio" name="q2" value="e" id="q2e">
+  <label for="q2e">E) XOR </label>
+
+  <!-- Feedback -->
+  <div class="feedback correta">
+    ✔ Resposta correta!
+  </div>
+
+  <div class="feedback errada a">✖ Incorreta.</div>
+  <div class="feedback errada b">✖ Incorreta.</div>
+  <div class="feedback errada d">✖ Incorreta.</div>
+  <div class="feedback errada e">✖ Incorreta.</div>
+	</div>
+	<p> </p>
+	<p> </p>
+			<p><strong> As portas lógicas tomam decisões baseadas em que?</strong></p>
+	<div class="quiz">
+  <input type="radio" name="q2" value="a" id="q2a">
+  <label for="q3a">A) Sentimentos </label><br>
+
+  <input type="radio" name="q2" value="b" id="q2b">
+  <label for="q3b">B) Especulações </label><br>
+
+  <input type="radio" name="q2" value="c" id="q2c">
+  <label for="q3c">C) Regras </label><br>
+
+  <input type="radio" name="q2" value="d" id="q2d">
+  <label for="q3d">D) Filosofia </label><br>
+
+  <input type="radio" name="q2" value="e" id="q2e">
+  <label for="q3e">E) Moralidade </label>
+
+  <!-- Feedback -->
+  <div class="feedback correta">
+    ✔ Resposta correta!
+  </div>
+
+		</section>
+		
+	</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
