@@ -1,0 +1,398 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Curiosidades e fatos históricos da Ciência da Computação">
+<meta name="author" content="Portal Computação">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arquivo Confuso da Computação</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+
+</head>
+
+
+<body class="bg-base-200">
+
+<div class="max-w-6xl mx-auto p-6 bg-base-100 shadow-xl rounded-xl">
+
+<header class="text-center mb-10">
+
+<div class="flex justify-end mb-4">
+
+<label class="swap swap-rotate">
+
+<input type="checkbox" id="theme-toggle"/>
+
+<!-- sol -->
+<svg class="swap-on fill-current w-8 h-8"
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 24 24">
+
+<path d="M5.64 17.657l-1.414 1.414L2.81 17.657l1.414-1.414 1.414 1.414zm12.02 0l1.414 1.414 1.414-1.414-1.414-1.414-1.414 1.414zM12 18a6 6 0 110-12 6 6 0 010 12zm0 4h-1v-3h1v3zm0-16h-1V2h1v4z"/>
+
+</svg>
+
+<!-- lua -->
+<svg class="swap-off fill-current w-8 h-8"
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 24 24">
+
+<path d="M21.64 13a9 9 0 11-10.63-10.63A7 7 0 0021.64 13z"/>
+
+</svg>
+
+</label>
+
+</div>
+
+<h1 class="text-4xl font-bold">
+Arquivo (Quase) Perdido da Ciência da Computação
+</h1>
+
+<p class="opacity-70">
+Uma coletânea caótica de fatos históricos, curiosos e inesperados.
+</p>
+
+</header>
+
+
+<nav class="navbar bg-base-200 rounded-box mb-10">
+
+<ul class="menu menu-horizontal mx-auto gap-2">
+
+<li><a href="#pioneiros">Pioneiros</a></li>
+<li><a href="#bugs">Bugs</a></li>
+<li><a href="#internet">Internet</a></li>
+<li><a href="#linguagens">Linguagens</a></li>
+<li><a href="#linha">Linha do Tempo</a></li>
+<li><a href="#formulario">Envie Algo</a></li>
+
+</ul>
+
+</nav>
+
+
+<main class="space-y-12">
+
+
+<section id="pioneiros">
+
+<h2 class="text-3xl font-bold mb-6">
+Pioneiros Esquecidos
+</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<article class="card bg-base-200 shadow">
+<div class="card-body">
+
+<h3 class="card-title">Ada Lovelace</h3>
+
+<p>
+Considerada a primeira programadora da história.
+</p>
+
+<details>
+<summary class="cursor-pointer font-semibold">
+Ver mais
+</summary>
+
+<p>
+Ela escreveu um algoritmo para a Máquina Analítica no século XIX.
+</p>
+
+</details>
+
+</div>
+</article>
+
+
+<article class="card bg-base-200 shadow">
+<div class="card-body">
+
+<h3 class="card-title">Alan Turing</h3>
+
+<p>
+Criador do conceito de Máquina de Turing.
+</p>
+
+<blockquote class="italic opacity-70">
+"Podemos ver apenas um pouco do futuro, mas o suficiente para perceber que há muito a fazer."
+</blockquote>
+
+</div>
+</article>
+
+</div>
+
+</section>
+
+
+
+<section id="bugs">
+
+<h2 class="text-3xl font-bold mb-6">
+Histórias de Bugs
+</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<article class="card bg-base-200 shadow">
+<div class="card-body">
+
+<h3 class="card-title">
+O Primeiro Bug Real
+</h3>
+
+<p>
+Uma mariposa encontrada em um computador em 1947.
+</p>
+
+</div>
+</article>
+
+
+<article class="card bg-base-200 shadow">
+<div class="card-body">
+
+<h3 class="card-title">
+O Vírus Creeper
+</h3>
+
+<p>
+Primeiro vírus da história (1971).
+</p>
+
+<p>Mensagem exibida:</p>
+
+<pre class="mockup-code">
+<code>I'M THE CREEPER : CATCH ME IF YOU CAN</code>
+</pre>
+
+</div>
+</article>
+
+</div>
+
+</section>
+
+
+
+<section id="internet">
+
+<h2 class="text-3xl font-bold mb-6">
+Curiosidades da Internet
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<article class="card bg-base-200 shadow">
+<div class="card-body">
+
+<h3 class="card-title">Primeiro Website</h3>
+
+<p>Criado em 1991 por Tim Berners-Lee.</p>
+
+</div>
+</article>
+
+
+<article class="card bg-base-200 shadow">
+<div class="card-body">
+
+<h3 class="card-title">ARPANET</h3>
+
+<ul class="list-disc ml-6">
+<li>Primeira mensagem enviada: "LO"</li>
+<li>O sistema caiu antes de completar "LOGIN"</li>
+</ul>
+
+</div>
+</article>
+
+
+<article class="card bg-base-200 shadow">
+<div class="card-body">
+
+<h3 class="card-title">Emojis ASCII</h3>
+
+<p><code>:-)</code> <code>;-)</code> <code>:-D</code></p>
+
+</div>
+</article>
+
+</div>
+
+</section>
+
+
+
+<section id="linguagens">
+
+<h2 class="text-3xl font-bold mb-6">
+Linguagens de Programação
+</h2>
+
+<div class="overflow-x-auto">
+
+<table class="table table-zebra">
+
+<thead>
+<tr>
+<th>Linguagem</th>
+<th>Ano</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>COBOL</td>
+<td>1959</td>
+</tr>
+
+<tr>
+<td>C</td>
+<td>1972</td>
+</tr>
+
+<tr>
+<td>Python</td>
+<td>1991</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+
+<section id="linha">
+
+<h2 class="text-3xl font-bold mb-6">
+Linha do Tempo
+</h2>
+
+<ul class="timeline timeline-vertical">
+
+<li>
+<div class="timeline-start">1837</div>
+<div class="timeline-middle">⚙️</div>
+<div class="timeline-end timeline-box">Máquina Analítica</div>
+</li>
+
+<li>
+<div class="timeline-start">1946</div>
+<div class="timeline-middle">💻</div>
+<div class="timeline-end timeline-box">ENIAC</div>
+</li>
+
+<li>
+<div class="timeline-start">1969</div>
+<div class="timeline-middle">🌐</div>
+<div class="timeline-end timeline-box">ARPANET</div>
+</li>
+
+<li>
+<div class="timeline-start">1991</div>
+<div class="timeline-middle">📡</div>
+<div class="timeline-end timeline-box">Primeiro Website</div>
+</li>
+
+</ul>
+
+</section>
+
+
+
+<section id="formulario">
+
+<h2 class="text-3xl font-bold mb-6">
+Envie sua Curiosidade
+</h2>
+
+<form class="space-y-4">
+
+<input
+type="text"
+placeholder="Seu nome"
+class="input input-bordered w-full"
+/>
+
+<input
+type="email"
+placeholder="Seu email"
+class="input input-bordered w-full"
+/>
+
+<select class="select select-bordered w-full">
+<option>Pioneiros</option>
+<option>Bugs</option>
+<option>Internet</option>
+<option>Linguagens</option>
+</select>
+
+<textarea
+placeholder="Sua curiosidade"
+class="textarea textarea-bordered w-full">
+</textarea>
+
+<button class="btn btn-primary w-full">
+Enviar Curiosidade
+</button>
+
+</form>
+
+</section>
+
+
+</main>
+
+
+<footer class="footer footer-center p-6 bg-base-200 mt-12 rounded-box">
+
+<p>
+© 2026 Arquivo Confuso da Computação
+</p>
+
+<address>
+contato@computacao.com
+</address>
+
+</footer>
+
+</div>
+
+
+
+<script>
+
+const toggle = document.getElementById("theme-toggle")
+
+toggle.addEventListener("change", function(){
+
+if(toggle.checked){
+
+document.documentElement.setAttribute("data-theme","dark")
+
+}else{
+
+document.documentElement.setAttribute("data-theme","light")
+
+}
+
+})
+
+</script>
+
+</body>
+</html>
+```
