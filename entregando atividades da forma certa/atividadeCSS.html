@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquivo Confuso da Computação</title>
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* FLEX PRINCIPAL */
+#container{
+    display:flex;
+}
+
+/* BODY */
+body{
+    font-family: Georgia, "Times New Roman", serif;
+    background:#f8f9fa;
+    color:#202122;
+}
+
+/* MENU LATERAL */
+#menu-principal{
+    width:250px;
+    min-height:100vh;
+    background:white;
+    border-right:1px solid #a2a9b1;
+    padding:20px;
+    position:sticky;
+    top:0;
+}
+
+#menu-principal h4{
+    margin-bottom:10px;
+}
+
+nav ul{
+    list-style:none;
+}
+
+nav li{
+    margin:8px 0;
+}
+
+nav a{
+    text-decoration:none;
+    color:#0645ad;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+/* CONTEÚDO */
+#pagina{
+    flex:1;
+    background:white;
+    padding:20px;
+}
+
+/* HEADER */
+#topo{
+    border-bottom:1px solid #a2a9b1;
+    margin-bottom:20px;
+}
+
+header h1{
+    font-size:28px;
+    text-align:center;
+}
+
+header p{
+    color:#54595d;
+    text-align:center;
+}
+
+/* TEXTOS */
+p{
+    text-align:justify;
+    margin:10px 0;
+}
+
+h2{
+    border-bottom:1px solid #a2a9b1;
+    padding-bottom:5px;
+    margin-top:20px;
+    text-align:center;
+}
+
+h3{
+    margin-top:15px;
+}
+
+/* LISTAS */
+ul, ol{
+    margin:15px;
+}
+
+/* TABELAS */
+table{
+    border-collapse:collapse;
+    width:100%;
+    margin-top:10px;
+}
+
+table th, table td{
+    border:1px solid #a2a9b1;
+    padding:8px;
+}
+
+table th{
+    background:#eaecf0;
+}
+
+/* FORM */
+fieldset{
+    border:1px solid #a2a9b1;
+    padding:10px;
+    margin-top:10px;
+}
+
+legend{
+    font-weight:bold;
+}
+
+input, textarea, select{
+    width:100%;
+    margin:5px 0 10px;
+    padding:5px;
+}
+
+/* FOOTER */
+footer{
+    border-top:1px solid #a2a9b1;
+    margin-top:30px;
+    padding:15px;
+    font-size:14px;
+    color:#54595d;
+}
+
+/* RESPONSIVO */
+@media (max-width:768px){
+    #container{
+        flex-direction:column;
+    }
+
+    #menu-principal{
+        width:100%;
+        min-height:auto;
+        position:relative;
+        border-right:none;
+        border-bottom:1px solid #a2a9b1;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<!-- MENU -->
+<nav id="menu-principal">
+    <h4>Índice</h4>
+    <ul>
+        <li><a href="#pioneiros">Pioneiros</a></li>
+        <li><a href="#bugs">Bugs</a></li>
+        <li><a href="#internet">Internet</a></li>
+        <li><a href="#linguagens">Linguagens</a></li>
+        <li><a href="#linha-do-tempo">Linha do Tempo</a></li>
+        <li><a href="#formulario">Envie Algo</a></li>
+    </ul>
+</nav>
+
+<!-- CONTEÚDO -->
+<div id="pagina">
+
+<header id="topo">
+    <h1>Arquivo (Quase) Perdido da Ciência da Computação</h1>
+    <p>Uma coletânea caótica de fatos históricos.</p>
+</header>
+
+<main>
+
+<section id="pioneiros">
+<h2>Pioneiros</h2>
+
+<article>
+<h3>Ada Lovelace</h3>
+<p>Primeira programadora da história.</p>
+</article>
+
+<article>
+<h3>Alan Turing</h3>
+<p>Criador da Máquina de Turing.</p>
+</article>
+
+</section>
+
+<section id="bugs">
+<h2>Bugs</h2>
+
+<article>
+<h3>Primeiro Bug</h3>
+<p>Uma mariposa em 1947.</p>
+</article>
+
+</section>
+
+<section id="internet">
+<h2>Internet</h2>
+
+<p>Primeiro site criado em 1991.</p>
+
+</section>
+
+<section id="linguagens">
+<h2>Linguagens</h2>
+
+<table>
+<tr>
+<th>Linguagem</th>
+<th>Ano</th>
+</tr>
+<tr>
+<td>C</td>
+<td>1972</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>1991</td>
+</tr>
+</table>
+
+</section>
+
+<section id="linha-do-tempo">
+<h2>Linha do Tempo</h2>
+
+<ol>
+<li>1946 - ENIAC</li>
+<li>1969 - ARPANET</li>
+<li>1991 - Web</li>
+</ol>
+
+</section>
+
+<section id="formulario">
+<h2>Envie Algo</h2>
+
+<form>
+<fieldset>
+
+<legend>Cadastro</legend>
+
+<label>Nome:</label>
+<input type="text">
+
+<label>Email:</label>
+<input type="email">
+
+<input type="submit" value="Enviar">
+
+</fieldset>
+</form>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 Arquivo Confuso da Computação</p>
+</footer>
+
+</div>
+
+</div>
+
+</body>
+</html>
