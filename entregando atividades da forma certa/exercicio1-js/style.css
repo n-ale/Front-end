@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap');
+
+/* ============================================
+   VARIÁVEIS GLOBAIS
+   ============================================ */
+:root {
+  --bg:       #0d0d0f;
+  --surface:  #16161a;
+  --surface2: #1e1e24;
+  --border:   #2a2a35;
+  --accent1:  #00e5a0;
+  --accent2:  #ff6b35;
+  --accent3:  #6c63ff;
+  --accent4:  #ffd60a;
+  --text:     #e8e8f0;
+  --muted:    #6b6b80;
+  --green:    #00e5a0;
+  --red:      #ff4757;
+  --blue:     #4dabff;
+  --radius:   12px;
+  --mono:     'Space Mono', monospace;
+  --sans:     'Syne', sans-serif;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  padding: 40px 20px 80px;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 10% 0%,   rgba(0,229,160,0.06)  0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(108,99,255,0.07) 0%, transparent 60%);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent1);
+  border: 1px solid rgba(0,229,160,0.3);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+/* ============================================
+   GRID DE CARDS
+   ============================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   CARD BASE
+   ============================================ */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.card:hover {
+  border-color: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+/* Barra colorida no topo de cada card */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 16px 16px 0 0;
+}
+
+.card--1::before { background: linear-gradient(90deg, var(--accent1), transparent); }
+.card--2::before { background: linear-gradient(90deg, var(--accent2), transparent); }
+.card--3::before { background: linear-gradient(90deg, var(--accent3), transparent); }
+.card--4::before { background: linear-gradient(90deg, var(--accent4), transparent); }
+
+/* ============================================
+   BADGE DO CARD
+   ============================================ */
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.badge-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.card--1 .badge-num { background: rgba(0,229,160,0.15);  color: var(--accent1); }
+.card--2 .badge-num { background: rgba(255,107,53,0.15);  color: var(--accent2); }
+.card--3 .badge-num { background: rgba(108,99,255,0.15);  color: var(--accent3); }
+.card--4 .badge-num { background: rgba(255,214,10,0.15);  color: var(--accent4); }
+
+/* ============================================
+   TÍTULOS E DESCRIÇÕES DOS CARDS
+   ============================================ */
+.card h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.card .desc {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ============================================
+   LABELS E INPUTS
+   ============================================ */
+label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+input,
+select {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 16px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input:focus,
+select:focus {
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+}
+
+select option {
+  background: var(--surface2);
+}
+
+/* ============================================
+   LAYOUTS ESPECIAIS
+   ============================================ */
+
+/* Row de 3 colunas (notas) */
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.row > div {
+  flex: 1;
+}
+
+/* Grid do conversor de temperatura */
+.temp-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.temp-divider {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--accent2);
+  text-align: center;
+  padding-top: 20px;
+  font-weight: 700;
+}
+
+/* ============================================
+   BOTÕES
+   ============================================ */
+.btn {
+  width: 100%;
+  padding: 13px 20px;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 4px;
+}
+
+.btn--1 { background: var(--accent1); color: #000; }
+.btn--1:hover { background: #00ffc4; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,229,160,0.3); }
+
+.btn--3 { background: var(--accent3); color: #fff; }
+.btn--3:hover { background: #8b84ff; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(108,99,255,0.3); }
+
+.btn--4 { background: var(--accent4); color: #000; }
+.btn--4:hover { background: #ffe040; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,214,10,0.3); }
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   CAIXAS DE RESULTADO
+   ============================================ */
+.result {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.7;
+  display: none;
+  animation: slideIn 0.25s ease;
+}
+
+.result.show {
+  display: block;
+}
+
+/* Variantes de cor */
+.result.success {
+  background: rgba(0,229,160,0.08);
+  border: 1px solid rgba(0,229,160,0.3);
+  color: var(--green);
+}
+
+.result.error {
+  background: rgba(255,71,87,0.08);
+  border: 1px solid rgba(255,71,87,0.3);
+  color: var(--red);
+}
+
+.result.info {
+  background: rgba(77,171,255,0.08);
+  border: 1px solid rgba(77,171,255,0.3);
+  color: var(--blue);
+}
+
+.result.warning {
+  background: rgba(0,229,160,0.06);
+  border: 1px solid rgba(0,229,160,0.25);
+  color: #7dffcc;
+}
+
+.result.neutral {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* Elementos internos do resultado */
+.result-icon {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.result-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.result-value {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.result-msg {
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* ============================================
+   TABELA DE RESUMO (BANK)
+   ============================================ */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.divider-line {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 10px 0;
+}
+
+/* ============================================
+   ANIMAÇÃO DE ENTRADA DO RESULTADO
+   ============================================ */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .temp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .temp-divider {
+    display: none;
+  }
+}
